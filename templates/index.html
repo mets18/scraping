@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div clas="container">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div class="row" id="mars_news">
+        <div class="col-md-12">
+          <h2 class="heading">Latest Mars News</h2>
+          <h3>{{mars_dict.news_title}}</h3>
+          <h4>{{mars_dict.news_p}}</h4>
+        </div>
+    </div>
+    <h2>Featured Mars Image</h2>
+    <img src="{{ mars_dict.featured_image_url }}" alt="Mars">
+    <h2>Mars Facts</h2>
+    {{mars_dict.html_table_clean|safe}}
+      
+    <!-- mars weather -->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3>Current Weather on Mars</h3>
+        <p>{{ mars_dict.mars_weather }}</p>
+      </div>
+    </div>
+    
+  </div>
+  <div class="container">
+    <h3 class="text-center">Mars Hemispheres</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="caption">
+                <h3>{{ mars_dict.hemisphere_image_urls[0]['title']}}</h3>
+                
+            </div>
+            <div class="thumbnail">
+                <img src="{{ mars_dict.hemisphere_image_urls[0]['img_url']}}" alt="..." class="img-thumbnail">
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+            <div class="caption">
+                <h3>{{ mars_dict.hemisphere_image_urls[1]['title']}}</h3>
+                
+            </div>
+            <div class="thumbnail">
+                <img src="{{ mars_dict.hemisphere_image_urls[1]['img_url']}}" alt="..." class="img-thumbnail">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="caption">
+                <h3>{{ mars_dict.hemisphere_image_urls[2]['title']}}</h3>
+                
+            </div>
+            <div class="thumbnail">
+                <img src="{{ mars_dict.hemisphere_image_urls[2]['img_url']}}" alt="..." class="img-thumbnail">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="caption">
+                <h3>{{ mars_dict.hemisphere_image_urls[3]['title']}}</h3>
+            
+            </div>
+            <div class="thumbnail">
+                <img src="{{ mars_dict.hemisphere_image_urls[3]['img_url']}}" alt="..." class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+
